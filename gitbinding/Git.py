@@ -62,14 +62,14 @@ class Git(object):
     def _update_path(self, args):
         if len(args) >= 2:
             p = str(args[1])
-            self.path = p.strip()
+            self.path = self.path+"/"+p.strip()
         else:
             p = str(args[0])
             p = p.split("/")
             p = p[-1]
             if p.endswith(".git"):
                 p = p[:-3]
-                self.path = p.strip()
+            self.path = self.path+"/"+p.strip()
 
     def __getattr__(self,
                     name):
