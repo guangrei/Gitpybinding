@@ -10,7 +10,7 @@ with open(path.join(this_directory, 'README.md')) as f:
 
 setup(
     name='gitbinding',
-    version='v1.0.2',
+    version='v1.0.3',
     packages=['gitbinding', ],
     license='MIT',
     author="guangrei",
