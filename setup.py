@@ -4,13 +4,15 @@
 from setuptools import setup
 from os import path
 
+requirements = ['anybinding']
+
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md')) as f:
     long_description = f.read()
 
 setup(
     name='gitbinding',
-    version='v1.0.3',
+    version='v1.0.5',
     packages=['gitbinding', ],
     license='MIT',
     author="guangrei",
@@ -18,6 +20,7 @@ setup(
     description="python binding git command.",
     long_description=long_description,
     long_description_content_type='text/markdown',
+    install_requires=requirements,
     keywords="git",
     url="https://github.com/guangrei/Gitpybinding",
 )

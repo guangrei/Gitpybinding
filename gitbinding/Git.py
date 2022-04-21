@@ -22,8 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
-
-from subprocess import Popen, PIPE
+from anybinding import Bind
 import os
 import sys
 import shlex
@@ -31,8 +30,7 @@ import shlex
 
 class Git(object):
 
-    stdout = ""
-    stderr = ""
+    output = ""
     gitbin = "git"
 
     def __init__(self, path=None, direct_output=True):
@@ -44,20 +42,6 @@ class Git(object):
                 self.path = path
             else:
                 raise IOError("path isn't exists!")
-
-    def _evaluate(self, command):
-        command = shlex.split(command)
-        if self.direct_output:
-            p = Popen(command, cwd=self.path)
-            p.communicate()
-            if p.poll() != 0:
-                raise RuntimeError("exit code: {}".format(p.poll()))
-        else:
-            p = Popen(command, cwd=self.path, stdout=PIPE,
-                      stderr=PIPE, universal_newlines=True)
-            self.stdout, self.stderr = p.communicate()
-            if p.poll() != 0:
-                raise RuntimeError("{}".format(self.stderr))
 
     def _update_path(self, args):
         if len(args) >= 2:
@@ -76,11 +60,13 @@ class Git(object):
 
         def call_git(*args):
 
-            arg = " ".join([str(i) for i in args])
-            command = "{0} {1} {2}".format(self.gitbin, name, arg)
-            self._evaluate(command)
+            git = Bind(bin=self.gitbin, path=self.path,
+                       direct_output=self.direct_output)
+            ret = getattr(git, name)(*args)
             if name == "clone":
                 self._update_path(args)
+            if not self.direct_output:
+                return ret
 
         return call_git
 
