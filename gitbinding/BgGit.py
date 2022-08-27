@@ -1,5 +1,5 @@
 # -*-coding:utf8;-*-
-"""
+ """
 The MIT License (MIT)
 
 Copyright (c) 2022 gitbinding https://github.com/guangrei/Gitpybinding
