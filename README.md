@@ -1,3 +1,5 @@
+[![Downloads](https://static.pepy.tech/badge/gitbinding)](https://pepy.tech/project/gitbinding) [![Downloads](https://static.pepy.tech/badge/gitbinding/month)](https://pepy.tech/project/gitbinding) [![Downloads](https://static.pepy.tech/badge/gitbinding/week)](https://pepy.tech/project/gitbinding)
+
 Fully git command binding for python, compatible with all git and python 2 & 3 version.
 
 ## Installation
