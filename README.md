@@ -1,3 +1,6 @@
+[![status workflow test](https://github.com/guangrei/Gitpybinding/actions/workflows/python-app.yml/badge.svg)](https://github.com/guangrei/Gitpybinding/actions) 
+[![status workflow build](https://github.com/guangrei/Gitpybinding/actions/workflows/release_to_pypi.yml/badge.svg)](https://github.com/guangrei/Gitpybinding/actions)
+
 [![Downloads](https://static.pepy.tech/badge/gitbinding)](https://pepy.tech/project/gitbinding) [![Downloads](https://static.pepy.tech/badge/gitbinding/month)](https://pepy.tech/project/gitbinding) [![Downloads](https://static.pepy.tech/badge/gitbinding/week)](https://pepy.tech/project/gitbinding)
 
 Fully git command binding for python, compatible with all git and python 2 & 3 version.
@@ -5,7 +8,7 @@ Fully git command binding for python, compatible with all git and python 2 & 3 v
 ## Installation
 
 ```
-pip3 install gitbinding
+pip install gitbinding
 ```
 
 ## Usage
